@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_07_12_173040) do
 
-  create_table "essay_contributers", force: :cascade do |t|
+  create_table "essay_contributors", force: :cascade do |t|
     t.integer "user_id"
     t.integer "essay_id"
     t.datetime "created_at", precision: 6, null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_07_12_173040) do
   create_table "essays", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "type"
+    t.string "essay_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

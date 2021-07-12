@@ -3,7 +3,7 @@ class CreateEssays < ActiveRecord::Migration[6.1]
     create_table :essays do |t|
       t.string :title
       t.text :content
-      t.string :type
+      t.string :essay_type
 
       t.timestamps
     end

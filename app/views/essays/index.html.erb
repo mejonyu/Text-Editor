@@ -1,0 +1,6 @@
+<h1> List of my essays </h1>
+<ul>
+<% @essays.each do |essay| %>
+    <li><%= link_to essay.title, essay_path(essay) %></li>
+    <% end %>
+    </ul>
