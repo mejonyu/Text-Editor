@@ -16,9 +16,15 @@ class SessionsController < ApplicationController
     end
   
     def destroy
+<<<<<<< Updated upstream
       # session[:user_id] = nil
       # session.delete(:user_id)
       session.clear
       redirect_to signin_path
+=======
+        session[:user_id] = nil
+        flash[:notice] = "You have been signed out."
+        redirect_to '/'
+>>>>>>> Stashed changes
     end
   end
