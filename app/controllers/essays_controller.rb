@@ -18,8 +18,20 @@ class EssaysController < ApplicationController
             @essay.save
             @essay.update(last_editor: current_user.full_name, edited?: false)
             EssayContributor.create(user_id: current_user.id, essay_id: @essay.id)
-            redirect_to @essay
+            
+            if params[:essay][:add_a_writer] != ""
+                new_contributor = @essay.find_user(params[:essay][:add_a_writer])
+    
+                if new_contributor
+                    @essay.users << new_contributor
+                    redirect_to @essay
                 else
+                    flash[:errors] = ["Username not found. Please enter a valid username."]
+                    render :new
+                end
+            else
+                redirect_to @essay
+            end
         else
             flash[:errors] = @essay.errors.full_messages
 
