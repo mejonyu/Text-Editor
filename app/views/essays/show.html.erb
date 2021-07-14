@@ -1,4 +1,4 @@
-Essay Show Page
-<h1> <%= @essay.title %> </h1> 
-<h3> <%= @essay.type %> </h3> 
-<p><%= @essay.content %> </p>
+<h1><%= @essay.title %></h1>
+<h4><%= @essay.essay_type %> Essay by <%= @essay.contributors %></h4>
+<p><%= @essay.content %></p>
+<%= link_to "Edit", edit_essay_path(@essay) %>

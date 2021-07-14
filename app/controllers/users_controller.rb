@@ -19,7 +19,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to @user
         else
-            flash[:error] = "There was an error while creating your account. Please try again."
+            flash[:errors] = @user.errors.full_messages
             redirect_to new_user_path
         end
     end

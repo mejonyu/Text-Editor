@@ -1,1 +1,29 @@
-<%= render "form" %>
+<h1>Edit your Essay</h1>
+
+<% if flash[:errors] %>
+    <ul>
+        <% flash[:errors].each do |error| %>
+            <li>
+                <%= error %>
+            </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @essay do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, cols: 50, rows: 15 %>
+    <br>
+
+    <%= f.label :essay_type %>
+    <%= f.select :essay_type, Essay.types %>
+    <br>
+
+    <%= f.submit %>
+    
+<% end %>
