@@ -19,6 +19,7 @@ class EssaysController < ApplicationController
             @essay.update(last_editor: current_user.full_name, edited?: false)
             EssayContributor.create(user_id: current_user.id, essay_id: @essay.id)
             redirect_to @essay
+                else
         else
             flash[:errors] = @essay.errors.full_messages
 
