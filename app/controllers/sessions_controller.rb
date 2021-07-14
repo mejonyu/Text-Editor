@@ -14,14 +14,14 @@ class SessionsController < ApplicationController
             redirect_to @user
         else
             flash[:notice] = "Login is invalid."
-            redirect_to new_session_path
+            redirect_to signin_path
         end
     end
 
     def destroy
         session[:user_id] = nil
         flash[:notice] = "You have been signed out."
-        redirect_to new_session_path
+        redirect_to signin_path
     end
 
 end
