@@ -1,4 +1,4 @@
-<h1>Edit your Essay</h1>
+<h1>Edit Your Essay</h1>
 
 <% if flash[:errors] %>
     <ul>
@@ -22,6 +22,10 @@
 
     <%= f.label :essay_type %>
     <%= f.select :essay_type, Essay.types %>
+    <br>
+
+    <%= f.label :add_a_writer %>
+    <%= f.text_field :add_a_writer %>
     <br>
 
     <%= f.submit %>

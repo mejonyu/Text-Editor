@@ -16,11 +16,20 @@ class EssaysController < ApplicationController
 
         if @essay.valid?
             @essay.save
+            @essay.update(last_editor: current_user.full_name, edited?: false)
             EssayContributor.create(user_id: current_user.id, essay_id: @essay.id)
             redirect_to @essay
         else
             flash[:errors] = @essay.errors.full_messages
-            redirect_to new_essay_path
+
+            if params[:essay][:add_a_writer] != ""
+                new_contributor = @essay.find_user(params[:essay][:add_a_writer])
+    
+                if !new_contributor
+                    flash[:errors] << "Username not found. Please enter a valid username."
+                end
+            end
+            render :new
         end
     end
 
@@ -31,8 +40,36 @@ class EssaysController < ApplicationController
     def update
         @essay = Essay.find(params[:id])
         @essay.update(essay_params)
-        redirect_to @essay
+        @essay.update(last_editor: current_user.full_name, edited?: true)
+
+        if @essay.valid?
+            if params[:essay][:add_a_writer] != ""
+                new_contributor = @essay.find_user(params[:essay][:add_a_writer])
+    
+                if new_contributor
+                    @essay.users << new_contributor
+                    redirect_to @essay
+                else
+                    flash[:errors] = ["Username not found. Please enter a valid username."]
+                    render :edit
+                end
+            else
+                redirect_to @essay
+            end
+        else
+            flash[:errors] = @essay.errors.full_messages
+
+            if params[:essay][:add_a_writer] != ""
+                new_contributor = @essay.find_user(params[:essay][:add_a_writer])
+    
+                if !new_contributor
+                    flash[:errors] << "Username not found. Please enter a valid username."
+                end
+            end
+            render :edit
+        end
     end
+
 
     private
 

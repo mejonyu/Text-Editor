@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2021_07_12_173040) do
     t.string "title"
     t.text "content"
     t.string "essay_type"
+    t.string "last_editor"
+    t.boolean "edited?"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

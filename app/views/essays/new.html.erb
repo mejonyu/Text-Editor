@@ -24,6 +24,10 @@
     <%= f.select :essay_type, Essay.types %>
     <br>
 
+    <%= f.label :add_a_writer %>
+    <%= f.text_field :add_a_writer %>
+    <br>
+
     <%= f.submit %>
     
 <% end %>

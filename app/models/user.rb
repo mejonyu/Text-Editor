@@ -15,4 +15,8 @@ class User < ApplicationRecord
     def welcome
         "Hello, #{ self.first_name }!"
     end
+
+    def full_name
+        "#{ self.first_name} #{ self.last_name }"
+    end
 end

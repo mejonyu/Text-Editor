@@ -1,4 +1,6 @@
 class Essay < ApplicationRecord
+    attr_accessor :add_a_writer
+
     has_many :essay_contributors
     has_many :users, through: :essay_contributors
 
@@ -16,6 +18,18 @@ class Essay < ApplicationRecord
             user.first_name + " " + user.last_name 
         end
         writers.to_sentence
+    end
+
+    def find_user(username)
+        User.find_by(username: username)
+    end
+
+    def created_or_edited
+        if self.edited?
+            "edited"
+        else
+            "created"
+        end
     end
 
     private
