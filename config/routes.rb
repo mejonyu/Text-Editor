@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :essays
-  resources :users, only: [:new, :create, :index, :show]
-  resources :essay_contributors
-  resources :sessions, only: [:new, :create, :destroy]
 
   get '/show', to: 'users#show'
   get '/signup', to: 'users#new'
@@ -13,4 +9,10 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
+
+  resources :essays
+  resources :users, only: [:new, :create, :index, :show]
+  resources :essay_contributors
+
+
 end
