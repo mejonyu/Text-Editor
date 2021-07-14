@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+ #nav {
+    background-color:purple; /*Whatever color you want goes here, but in Hexadecimal form*/
+}
