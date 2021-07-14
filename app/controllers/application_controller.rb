@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 include ApplicationHelper
   before_action :require_login
   helper_method :current_user
-
+  protect_from_forgery with: :exception
   def require_login
       redirect_to new_session_path unless session.include? :user_id
   end
