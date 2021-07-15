@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 2021_07_15_010744) do
     t.integer "age"
     t.string "profession"
     t.text "bio"
-    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

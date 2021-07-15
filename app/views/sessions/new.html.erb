@@ -1,18 +1,9 @@
-<style>
-  body{
-    background-image: url('/assets/mouse_back.png');
-    background-size:cover;
-      
-  }
-</style>
-
 <% if flash[:notice] %>
 <%= content_tag :h1, flash[:notice] %>
 <% end %>
 <div class= "login" >
 <h2>Log In</h2>
 
-<div class="form">
 <%= form_with url: signin_path do |f| %>
   <div class="textbox">
 <i class="fa fa-user" aria-hidden="true"></i>
