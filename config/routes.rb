@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :essays
   resources :poems
+  
   resources :users, only: [:new, :create, :index, :show]
   resources :essay_contributors
-
 
 end

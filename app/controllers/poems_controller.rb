@@ -83,6 +83,11 @@ class PoemsController < ApplicationController
         end
     end
 
+    def destroy
+        @poem = Poem.find(params[:id])
+        @poem.destroy
+        redirect_to poems_path, notice: "Your poem has been deleted."
+    end
 
     private
 

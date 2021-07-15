@@ -83,6 +83,11 @@ class EssaysController < ApplicationController
         end
     end
 
+    def destroy
+        @essay = Essay.find(params[:id])
+        @essay.destroy
+        redirect_to essays_path, notice: "Your essay has been deleted."
+    end
 
     private
 

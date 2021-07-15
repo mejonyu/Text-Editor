@@ -32,5 +32,7 @@
     
 <% end %>
 
+<%= button_to "Delete", poem_path(@poem), data: { confirm: "Are you sure?" }, method: "delete" %>
+
 <%= button_to "Cancel", poem_path(@poem), method: "get" %>
 
