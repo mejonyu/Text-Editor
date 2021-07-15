@@ -1,0 +1,4 @@
+<h1><%= @essay.title %></h1>
+<h4><%= @essay.essay_type %> Essay by <%= @essay.contributors %></h4>
+<p><%= @essay.content %></p>
+<%= button_to "Edit", edit_essay_path(@essay), method: "get" %>

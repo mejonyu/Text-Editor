@@ -1,0 +1,9 @@
+<h1>Recently Updated Essays</h1>
+
+<ul>
+    <% @essays.sort{ |essay| essay.updated_at }.each do |essay| %>
+        <li>
+            <%= link_to essay.title, essay_path(essay) %> - <%= essay.created_or_edited %> <%= essay_edited_date_format(essay) %> by <%= essay.last_editor %>
+        </li>
+    <% end %>
+</ul>
