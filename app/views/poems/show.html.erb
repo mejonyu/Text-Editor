@@ -1,0 +1,4 @@
+<h1><%= @poem.title %></h1>
+<h4><%= @poem.poem_type %> Poem by <%= @poem.contributors %></h4>
+<p><%= @poem.content %></p>
+<%= button_to "Edit", edit_poem_path(@poem), method: "get" %>

@@ -1,0 +1,9 @@
+<h1>Recently Updated Poems</h1>
+
+<ul>
+    <% @poems.sort{ |poem| poem.updated_at }.each do |poem| %>
+        <li>
+            <%= link_to poem.title, poem_path(poem) %> - <%= poem.created_or_edited %> <%= poem_edited_date_format(poem) %> by <%= poem.last_editor %>
+        </li>
+    <% end %>
+</ul>

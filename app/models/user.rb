@@ -4,6 +4,9 @@ class User < ApplicationRecord
     has_many :essay_contributors
     has_many :essays, through: :essay_contributors
 
+    has_many :poem_contributors
+    has_many :poems, through: :poem_contributors
+
     validates :username, presence: true, uniqueness: true
     validates :password, presence: true, length: { minimum: 8 }
     validates :first_name, presence: true

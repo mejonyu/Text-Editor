@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_173040) do
+ActiveRecord::Schema.define(version: 2021_07_15_005049) do
 
   create_table "essay_contributers", force: :cascade do |t|
     t.integer "user_id"
@@ -30,6 +30,23 @@ ActiveRecord::Schema.define(version: 2021_07_12_173040) do
     t.string "title"
     t.text "content"
     t.string "essay_type"
+    t.string "last_editor"
+    t.boolean "edited?"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "poem_contributors", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "poem_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "poems", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "poem_type"
     t.string "last_editor"
     t.boolean "edited?"
     t.datetime "created_at", precision: 6, null: false
