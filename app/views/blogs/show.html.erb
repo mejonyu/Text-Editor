@@ -1,0 +1,4 @@
+<h1><%= @blog.title %></h1>
+<h4><%= @blog.topic %> Blog by <%= @blog.contributors %></h4>
+<p><%= @blog.content %></p>
+<%= button_to "Edit", edit_blog_path(@blog), method: "get" %>

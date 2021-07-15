@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
     has_many :poem_contributors
     has_many :poems, through: :poem_contributors
+    
+    has_many :blog_contributors
+    has_many :blogs, through: :blog_contributors
 
     validates :username, presence: true, uniqueness: true
     validates :password, presence: true, length: { minimum: 8 }

@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 
-    skip_before_action :require_login, only: [:create, :new]
-
     def new
     end
 
@@ -21,7 +19,7 @@ class SessionsController < ApplicationController
     def destroy
         session[:user_id] = nil
         flash[:notice] = "You have been signed out."
-        redirect_to signin_path
+        redirect_to '/'
     end
 
 end

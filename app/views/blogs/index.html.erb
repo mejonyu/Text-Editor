@@ -1,0 +1,9 @@
+<h1>Recently Updated Blogs</h1>
+
+<ul>
+    <% @blogs.sort{ |blog| blog.updated_at }.each do |blog| %>
+        <li>
+            <%= link_to blog.title, blog_path(blog) %> - <%= blog.created_or_edited %> <%= blog_edited_date_format(blog) %> by <%= blog.last_editor %>
+        </li>
+    <% end %>
+</ul>

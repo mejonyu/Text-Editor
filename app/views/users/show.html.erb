@@ -1,4 +1,17 @@
-<h1><%= current_user.welcome %></h1>
+<style>
+body{
+   background-image: url(https://wallpaper.dog/large/17167854.gif);
+   background-size:cover;
+    
+}
+</style>
+<h1 style ="color:white;"><%= current_user.welcome %></h1>
 
 View your essays <%= link_to "here", essays_path %> or create a new essay <%= link_to "here", new_essay_path %>.<br>
 View your poems <%= link_to "here", poems_path %> or create a new poem <%= link_to "here", new_poem_path %>.
+<div class = "blog">
+<%= link_to "View My Blogs", blogs_path %> 
+<%= link_to "Create New Blogs", new_blog_path %>
+</div>
+
+
