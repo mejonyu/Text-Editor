@@ -1,9 +1,24 @@
+<style>
+  body{
+    background-image: url('/assets/lightbulb_back.png');
+    background-size:cover;
+      
+  }
+</style>
+
+<% if flash[:notices] %>
+    <div class="isa_success">
+        <i class="fa fa-check"></i>
+        <% flash[:notices].each do |notice| %>
+            <%= notice %>
+        <% end %>
+    </div>
+<% end %>
+
 <h1>Recently Updated Essays</h1>
 
-<ul>
+<div class="form">
     <% @essays.sort{ |essay| essay.updated_at }.each do |essay| %>
-        <li>
-            <%= link_to essay.title, essay_path(essay) %> - <%= essay.created_or_edited %> <%= essay_edited_date_format(essay) %> by <%= essay.last_editor %>
-        </li>
+        <%= link_to essay.title, essay_path(essay) %> - <%= essay.created_or_edited %> <%= essay_edited_date_format(essay) %> by <%= essay.last_editor %><br>
     <% end %>
-</ul>
+</div>

@@ -24,6 +24,8 @@ class EssaysController < ApplicationController
     
                 if new_contributor
                     @essay.users << new_contributor
+                    flash[:success] = ["\"#{@essay.title}\" was successfully created."]
+                    flash[:messages] = ["#{new_contributor.full_name} can now edit \"#{@essay.title}\"."]
                     redirect_to @essay
                 else
                     flash[:errors] = ["Username not found. Please enter a valid username."]
@@ -61,6 +63,7 @@ class EssaysController < ApplicationController
     
                 if new_contributor
                     @essay.users << new_contributor
+                    flash[:messages] = ["#{new_contributor.full_name} is now a contributer on \"#{@essay.title}\"."]
                     redirect_to @essay
                 else
                     flash[:errors] = ["Username not found. Please enter a valid username."]
@@ -86,7 +89,8 @@ class EssaysController < ApplicationController
     def destroy
         @essay = Essay.find(params[:id])
         @essay.destroy
-        redirect_to essays_path, notice: "Your essay has been deleted."
+        flash[:notices] = ["Your essay has been deleted."]
+        redirect_to essays_path
     end
 
     private

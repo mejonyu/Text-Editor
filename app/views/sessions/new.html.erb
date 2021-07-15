@@ -1,3 +1,11 @@
+<style>
+  body{
+    background-image: url('/assets/mouse_back.png');
+    background-size:cover;
+      
+  }
+</style>
+
 <% if flash[:notice] %>
   <%= content_tag :h1, flash[:notice] %>
 <% else %>
@@ -6,8 +14,13 @@
 
 <h2>Log In</h2>
 
+<div class="form">
 <%= form_with url: signin_path do |f| %>
+  <%= f.label :username %><br>
   <%= f.text_field :username %><br>
+
+  <%= f.label :password %><br>
   <%= f.password_field :password %><br>
   <%= f.submit "Sign In" %>
 <% end %>
+</div>

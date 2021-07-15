@@ -4,8 +4,8 @@ class Essay < ApplicationRecord
     has_many :essay_contributors
     has_many :users, through: :essay_contributors
 
-    validates :title, presence: true, length: { minimum: 1 }, length: { maximum: 60 }
-    validates :content, presence: true, length: { minimum: 1 }
+    validates :title, presence: true, length: { maximum: 60 }
+    validates :content, presence: true
 
     TYPES = ["Narrative", "Descriptive", "Expository", "Persuasive"]
 

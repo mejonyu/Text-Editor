@@ -23,6 +23,7 @@ class BlogsController < ApplicationController
     
                 if new_contributor
                     @blog.users << new_contributor
+                    flash[:messages] = ["#{new_contributor.full_name} can now edit \"#{@blog.title}\"."]
                     redirect_to @blog
                 else
                     flash[:errors] = ["Username not found. Please enter a valid username."]
@@ -82,6 +83,12 @@ class BlogsController < ApplicationController
         end
     end
 
+    def destroy
+        @blog = Blog.find(params[:id])
+        @blog.destroy
+        flash[:notices] = ["Your blog has been deleted."]
+        redirect_to blogs_path
+    end
 
     private
 

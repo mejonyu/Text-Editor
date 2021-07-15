@@ -4,8 +4,8 @@ class Poem < ApplicationRecord
     has_many :poem_contributors
     has_many :users, through: :poem_contributors
 
-    validates :title, presence: true, length: { minimum: 1 }, length: { maximum: 60 }
-    validates :content, presence: true, length: { minimum: 1 }
+    validates :title, presence: true, length: { maximum: 60 }
+    validates :content, presence: true
 
     TYPES = ["Haiku", "Sonnet", "Free Verse", "Limerick", "Ballad", "Elegy", "Cinquain", "Acrostic"]
 

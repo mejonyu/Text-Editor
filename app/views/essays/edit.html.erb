@@ -1,37 +1,45 @@
+<style>
+  body{
+    background-image: url('/assets/lightbulb_back.png');
+    background-size:cover;
+      
+  }
+</style>
+
 <h1>Edit Your Essay</h1>
 
 <% if flash[:errors] %>
-    <ul>
+    <div class="isa_error">
         <% flash[:errors].each do |error| %>
-            <li>
-                <%= error %>
-            </li>
+            <i class="fa fa-times-circle"></i><%= error %>.<br>
         <% end %>
-    </ul>
+    </div>
 <% end %>
 
-<%= form_for @essay do |f| %>
+<div class="form">
+    <%= form_for @essay do |f| %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <br>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <br>
 
-    <%= f.label :content %>
-    <%= f.text_area :content, cols: 50, rows: 15 %>
-    <br>
+        <%= f.label :content %>
+        <%= f.text_area :content, cols: 50, rows: 15 %>
+        <br>
 
-    <%= f.label :essay_type %>
-    <%= f.select :essay_type, Essay.types %>
-    <br>
+        <%= f.label :essay_type %>
+        <%= f.select :essay_type, Essay.types %>
+        <br>
 
-    <%= f.label :add_a_writer %>
-    <%= f.text_field :add_a_writer %>
-    <br>
+        <%= f.label :add_a_writer %>
+        <%= f.text_field :add_a_writer %>
+        <br>
 
-    <%= f.submit %>
-    
-<% end %>
+        <%= f.submit %>
+        
+    <% end %>
 
-<%= button_to "Delete", essay_path(@essay), data: { confirm: "Are you sure?" }, method: "delete" %>
+    <%= button_to "Delete", essay_path(@essay), data: { confirm: "Are you sure?" }, method: "delete" %>
 
-<%= button_to "Cancel", essay_path(@essay), method: "get" %>
+    <%= button_to "Cancel", essay_path(@essay), method: "get" %>
+</div>

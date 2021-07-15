@@ -24,6 +24,7 @@ class PoemsController < ApplicationController
     
                 if new_contributor
                     @poem.users << new_contributor
+                    flash[:messages] = ["#{new_contributor.full_name} can now edit \"#{@poem.title}\"."]
                     redirect_to @poem
                 else
                     flash[:errors] = ["Username not found. Please enter a valid username."]
@@ -86,7 +87,8 @@ class PoemsController < ApplicationController
     def destroy
         @poem = Poem.find(params[:id])
         @poem.destroy
-        redirect_to poems_path, notice: "Your poem has been deleted."
+        flash[:notices] = ["Your poem has been deleted."]
+        redirect_to poems_path
     end
 
     private

@@ -4,8 +4,8 @@ class Blog < ApplicationRecord
     has_many :blog_contributors
     has_many :users, through: :blog_contributors
 
-    validates :title, presence: true, length: { minimum: 1 }, length: { maximum: 60 }
-    validates :content, presence: true, length: { minimum: 1 }
+    validates :title, presence: true, length: { maximum: 60 }
+    validates :content, presence: true
 
     TOPICS = ["Art", "Comics","Design", "Food", "Film", "Gaming", "Photography"]
     def self.topics

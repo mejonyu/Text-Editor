@@ -1,4 +1,32 @@
-<h1><%= @blog.title %></h1>
-<h4><%= @blog.topic %> Blog by <%= @blog.contributors %></h4>
-<p><%= @blog.content %></p>
-<%= button_to "Edit", edit_blog_path(@blog), method: "get" %>
+<style>
+  body{
+    background-image: url('/assets/beige_back.jpeg');
+    background-size:cover;
+      
+  }
+</style>
+
+<% if flash[:success] %>
+    <div class="isa_success">
+        <i class="fa fa-check"></i>
+        <% flash[:success].each do |notice| %>
+            <%= notice %>
+        <% end %>
+    </div>
+<% end %>
+
+<% if flash[:messages] %>
+    <div class="isa_info">
+        <i class="fa fa-info-circle"></i>
+        <% flash[:messages].each do |message| %>
+            <%= message %>
+        <% end %>
+    </div>
+<% end %>
+
+<div class="form">
+    <h1><%= @blog.title %></h1>
+    <h4><%= @blog.topic %> Blog by <%= @blog.contributors %></h4>
+    <p><%= @blog.content %></p>
+    <%= button_to "Edit", edit_blog_path(@blog), method: "get" %>
+</div>
