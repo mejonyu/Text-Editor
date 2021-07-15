@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
   resources :essays
+  resources :blogs
   resources :users, only: [:new, :create, :index, :show]
   resources :essay_contributors
 
