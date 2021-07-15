@@ -1,10 +1,14 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
 body {
     margin:0;
     padding: 0;
     font-family: sans-serif;
+    background-image: url(https://wallpaper.dog/large/17167854.gif);
+    background-size:cover;
+         
   }
   .sign_up_form{
      text-align: center;
