@@ -18,28 +18,43 @@
 
 <div class="form">
     <%= form_for @blog do |f| %>
-
-        <%= f.label :title %>
-        <%= f.text_field :title %>
+        
+        <%= f.label :title %><br>
+        <div class="textbox1">
+        <%= f.text_field :title, placeholder:"title" %>
+        
+        </div>
+       
+        <%= f.label :content %><br>
+        <div class="textbox1">
+        <%= f.text_area :content, cols: 50, rows: 15, placeholder:"content" %>
+        
+        </div>
+        
+        <%= f.label :topic %><br>
+        <div class="textbox1">
+        <%= f.select :topic, Blog.topics, placeholder:"topics" %>
         <br>
-
-        <%= f.label :content %>
-        <%= f.text_area :content, cols: 50, rows: 15 %>
+        </div>
+        <div class="textbox1">
+        <%= f.label :add_a_writer %><br>
+        <%= f.text_field :add_a_writer, placeholder:"Enter a username" %>
+        </div>
+        
         <br>
-
-        <%= f.label :topic %>
-        <%= f.select :topic, Blog.topics %>
-        <br>
-
-        <%= f.label :add_a_writer %>
-        <%= f.text_field :add_a_writer %>
-        <br>
-
+        <div>
+       <div class="b1">
         <%= f.submit %>
+       </div>
+      
         
     <% end %>
 
-    <%= button_to "Delete", blog_path(@blog), data: { confirm: "Are you sure?" }, method: "delete" %>
-
-    <%= button_to "Cancel", blog_path(@blog), method: "get" %>
+</div>
+<div class="b1">
+<%= button_to "Delete", blog_path(@blog), data: { confirm: "Are you sure?" }, method: "delete" %>
+    </div>
+    <div class="b1">
+<%= button_to "Cancel", blog_path(@blog), method: "get" %>
+</div>
 </div>

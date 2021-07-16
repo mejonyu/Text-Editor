@@ -1,7 +1,7 @@
 <style>
     body{
         background-image: url('/assets/lightbulb_back.png');
-        background-size:cover;
+        background-size: cover;
     }
 </style>
 
@@ -17,26 +17,40 @@
 
 <div class="form">
     <%= form_for @essay do |f| %>
-
+        
         <%= f.label :title %><br>
-        <%= f.text_field :title %>
-        <br>
-
+        <div class="textbox1">
+        <%= f.text_field :title, placeholder:"title" %>
+        
+        </div>
+       
         <%= f.label :content %><br>
-        <%= f.text_area :content, cols: 50, rows: 15 %>
-        <br>
-
+        <div class="textbox1">
+        <%= f.text_area :content, cols: 50, rows: 15, placeholder:"content" %>
+        
+        </div>
+        
         <%= f.label :essay_type %><br>
-        <%= f.select :essay_type, Essay.types %>
+        <div class="textbox1">
+        <%= f.select :essay_type, Essay.types, placeholder:"types" %>
         <br>
-
+        </div>
+        <div class="textbox1">
         <%= f.label :add_a_writer %><br>
-        <%= f.text_field :add_a_writer %>
+        <%= f.text_field :add_a_writer, placeholder:"Enter a username" %>
+        </div>
+        
         <br>
-
+        <div>
+       <div class="b1">
         <%= f.submit %>
+       </div>
+      
         
     <% end %>
-
+    <section id ='b2'>
     <%= button_to "Cancel", essays_path, method: "get" %>
+    
+    </div>
+    </div>
 </div>
