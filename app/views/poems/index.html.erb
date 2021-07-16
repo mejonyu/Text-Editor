@@ -1,0 +1,24 @@
+<style>
+  body{
+    background-image: url('/assets/lightbulb_back.png');
+    background-size:cover;
+      
+  }
+</style>
+
+<% if flash[:notices] %>
+    <div class="isa_success">
+        <i class="fa fa-check"></i>
+        <% flash[:notices].each do |notice| %>
+            <%= notice %>
+        <% end %>
+    </div>
+<% end %>
+
+<h1>Recently Updated Poems</h1>
+
+<div class="form">
+    <% @poems.sort{ |poem| poem.updated_at }.each do |poem| %>
+        <%= link_to poem.title, poem_path(poem) %> - <%= poem.created_or_edited %> <%= poem_edited_date_format(poem) %> by <%= poem.last_editor %><br>
+    <% end %>
+</div>

@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_173040) do
+ActiveRecord::Schema.define(version: 2021_07_15_010744) do
 
-  create_table "essay_contributers", force: :cascade do |t|
+  create_table "blog_contributors", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "blog_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "topic"
+    t.string "last_editor"
+    t.boolean "edited?"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "essay_contributors", force: :cascade do |t|
     t.integer "user_id"
     t.integer "essay_id"
     t.datetime "created_at", precision: 6, null: false
@@ -22,7 +39,26 @@ ActiveRecord::Schema.define(version: 2021_07_12_173040) do
   create_table "essays", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "type"
+    t.string "essay_type"
+    t.string "last_editor"
+    t.boolean "edited?"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "poem_contributors", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "poem_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "poems", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "poem_type"
+    t.string "last_editor"
+    t.boolean "edited?"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,6 +66,8 @@ ActiveRecord::Schema.define(version: 2021_07_12_173040) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
+    t.string "username"
+    t.string "password_digest"
     t.integer "age"
     t.string "profession"
     t.text "bio"

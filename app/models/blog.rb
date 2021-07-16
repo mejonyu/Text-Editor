@@ -1,16 +1,15 @@
-class Essay < ApplicationRecord
+class Blog < ApplicationRecord
     attr_accessor :add_a_writer
 
-    has_many :essay_contributors
-    has_many :users, through: :essay_contributors
+    has_many :blog_contributors
+    has_many :users, through: :blog_contributors
 
     validates :title, presence: true, length: { maximum: 60 }
     validates :content, presence: true
 
-    TYPES = ["Narrative", "Descriptive", "Expository", "Persuasive"]
-
-    def self.types
-        TYPES
+    TOPICS = ["Art", "Comics","Design", "Food", "Film", "Gaming", "Photography"]
+    def self.topics
+        TOPICS
     end
 
     def contributors
@@ -60,3 +59,4 @@ class Essay < ApplicationRecord
         end
     end
 end
+

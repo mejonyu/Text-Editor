@@ -1,9 +1,9 @@
-class CreateEssays < ActiveRecord::Migration[6.1]
+class CreateBlogs < ActiveRecord::Migration[6.1]
   def change
-    create_table :essays do |t|
+    create_table :blogs do |t|
       t.string :title
       t.text :content
-      t.string :essay_type
+      t.string :topic
       t.string :last_editor
       t.boolean :edited?
 

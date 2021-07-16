@@ -1,0 +1,24 @@
+<style>
+  body{
+    background-image: url('/assets/lightbulb_back.png');
+    background-size:cover;
+      
+  }
+</style>
+
+<% if flash[:notices] %>
+    <div class="isa_success">
+        <i class="fa fa-check"></i>
+        <% flash[:notices].each do |notice| %>
+            <%= notice %>
+        <% end %>
+    </div>
+<% end %>
+
+<h1>Recently Updated Blogs</h1>
+
+<div class="form">
+    <% @blogs.sort{ |blog| blog.updated_at }.each do |blog| %>
+        <%= link_to blog.title, blog_path(blog) %> - <%= blog.created_or_edited %> <%= blog_edited_date_format(blog) %> by <%= blog.last_editor %><br>
+    <% end %>
+</div>

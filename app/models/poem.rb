@@ -1,13 +1,13 @@
-class Essay < ApplicationRecord
+class Poem < ApplicationRecord
     attr_accessor :add_a_writer
 
-    has_many :essay_contributors
-    has_many :users, through: :essay_contributors
+    has_many :poem_contributors
+    has_many :users, through: :poem_contributors
 
     validates :title, presence: true, length: { maximum: 60 }
     validates :content, presence: true
 
-    TYPES = ["Narrative", "Descriptive", "Expository", "Persuasive"]
+    TYPES = ["Haiku", "Sonnet", "Free Verse", "Limerick", "Ballad", "Elegy", "Cinquain", "Acrostic"]
 
     def self.types
         TYPES

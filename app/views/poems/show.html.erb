@@ -1,0 +1,32 @@
+<style>
+  body{
+    background-image: url('/assets/beige_back.jpeg');
+    background-size:cover;
+      
+  }
+</style>
+
+<% if flash[:success] %>
+    <div class="isa_success">
+        <i class="fa fa-check"></i>
+        <% flash[:success].each do |notice| %>
+            <%= notice %>
+        <% end %>
+    </div>
+<% end %>
+
+<% if flash[:messages] %>
+    <div class="isa_info">
+        <i class="fa fa-info-circle"></i>
+        <% flash[:messages].each do |message| %>
+            <%= message %>
+        <% end %>
+    </div>
+<% end %>
+
+<div class="form">
+    <h1><%= @poem.title %></h1>
+    <h4><%= @poem.poem_type %> Poem by <%= @poem.contributors %></h4>
+    <p><%= @poem.content %></p>
+    <%= button_to "Edit", edit_poem_path(@poem), method: "get" %>
+</div>
