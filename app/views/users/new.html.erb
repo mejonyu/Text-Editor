@@ -16,22 +16,28 @@
     </ul>
 <% end %>
 
-<h1>Sign Up</h1>
 
-<div class="sign_up_form">
+<div class="signup_form">
+<h2>Sign Up</h2>
     <%= form_for @user do |f| %>
-        <%= f.label :first_name %><br>
-        <%= f.text_field :first_name %><br>
+        
+        <div class="textbox">
+        <i class="fa fa-address-book" aria-hidden="true"></i>
+        <%= f.text_field :first_name, placeholder:"firstname" %><br>
+        </div>
 
-        <%= f.label :last_name %><br>
-        <%= f.text_field :last_name %><br>
-
-        <%= f.label :username %><br>
-        <%= f.text_field :username %><br>
-
-        <%= f.label :password %><br>
-        <%= f.password_field :password %><br>
-
+        <div class="textbox">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        <%= f.text_field :last_name, placeholder:"lastname" %><br>
+        </div>
+        <div class="textbox">
+        <i class="fa fa-user" aria-hidden="true"></i>
+          <%= f.text_field :username, placeholder: "username" %><br>
+          </div>
+          <div class="textbox">
+        <i class="fa fa-lock" aria-hidden="true"></i>
+          <%= f.password_field :password, placeholder: "password" %><br>
+        </div>
         <%= f.submit "Create Account" %>
     <% end %>
 </div>
