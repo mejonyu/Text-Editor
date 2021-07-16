@@ -1,0 +1,31 @@
+
+<style>
+   body{
+      background-image: url('/assets/cloud_back.png');
+      background-size:cover;
+      
+   }
+</style>
+<h1 style ="color:white;"><%= current_user.welcome %></h1>
+
+
+<div class="essay">
+<%= link_to "View My Essays", essays_path %> 
+<%= link_to "Create an Essay", new_essay_path %> 
+<br>
+</div>
+
+<div class = "blog">
+<%= link_to "View My Blogs", blogs_path %> 
+<%= link_to "Create a Blog", new_blog_path %>
+<br>
+</div>
+
+<div class="poem">
+<%= link_to "View My Poems", poems_path %> 
+<%= link_to "Create a Poem", new_poem_path %> 
+<br>
+</div>
+
+
+

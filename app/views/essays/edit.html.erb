@@ -1,0 +1,57 @@
+<style>
+  body{
+    background-image: url('/assets/beige_back.jpeg');
+    background-size:cover;
+      
+  }
+</style>
+
+<h1>Edit Your Essay</h1>
+
+<% if flash[:errors] %>
+    <div class="isa_error">
+        <% flash[:errors].each do |error| %>
+            <i class="fa fa-times-circle"></i><%= error %>.<br>
+        <% end %>
+    </div>
+<% end %>
+
+<div class="form">
+    <%= form_for @essay do |f| %>
+
+        <%= f.label :title %><br>
+        <div class="textbox1">
+        <%= f.text_field :title %>
+        
+        </div>
+       
+        <%= f.label :content %><br>
+        <div class="textbox1">
+        <%= f.text_area :content, cols: 50, rows: 15 %>
+        
+        </div>
+        
+        <%= f.label :essay_type %><br>
+        <div class="textbox1">
+        <%= f.select :essay_type, Essay.types, placeholder:"types" %>
+        <br>
+        </div>
+        <div class="textbox1">
+        <%= f.label :add_a_writer %><br>
+        <%= f.text_field :add_a_writer, placeholder:"Enter a username" %>
+        </div>
+        
+        <br>
+
+        <div class="b1">
+        <%= f.submit %>
+       </div>
+        
+    <% end %>
+    <div class="b1">
+    <%= button_to "Delete", essay_path(@essay), data: { confirm: "Are you sure?" }, method: "delete" %>
+        </div>
+        <div class="b1">
+    <%= button_to "Cancel", essay_path(@essay), method: "get" %>
+    </div>
+</div>

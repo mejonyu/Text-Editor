@@ -1,0 +1,28 @@
+<style>
+    body{
+    background-image: url('/assets/mouse_back.png');
+    background-size:cover;
+        
+    }
+</style>
+
+<% if flash[:notice] %>
+<%= content_tag :h1, flash[:notice] %>
+<% end %>
+<div class= "login" >
+<h2>Log In</h2>
+
+<%= form_with url: signin_path do |f| %>
+  <div class="textbox">
+<i class="fa fa-user" aria-hidden="true"></i>
+  <%= f.text_field :username, placeholder: "username" %><br>
+  </div>
+  <div class="textbox">
+<i class="fa fa-lock" aria-hidden="true"></i>
+  <%= f.password_field :password, placeholder: "password" %><br>
+</div>
+<div class='btn'>
+<%= f.submit "Sign In" %>
+</div>
+<% end %>
+  </div>
