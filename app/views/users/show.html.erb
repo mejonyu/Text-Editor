@@ -8,9 +8,24 @@
 </style>
 <h1 style ="color:white;"><%= current_user.welcome %></h1>
 
-View your essays <%= link_to "here", essays_path %> or create a new essay <%= link_to "here", new_essay_path %>.<br>
-View your poems <%= link_to "here", poems_path %> or create a new poem <%= link_to "here", new_poem_path %>.
+
+<div class="essay">
+<%= link_to "View My Essay", essays_path %> 
+<%= link_to "Create New Essay", new_essay_path %> 
+<br>
+</div>
+
 <div class = "blog">
 <%= link_to "View My Blogs", blogs_path %> 
 <%= link_to "Create New Blogs", new_blog_path %>
+<br>
 </div>
+
+<div class="poem">
+<%= link_to "View My Poems", poems_path %> 
+<%= link_to "Create New Poems", new_poem_path %> 
+<br>
+</div>
+
+
+
