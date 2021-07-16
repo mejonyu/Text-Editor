@@ -32,6 +32,7 @@ class EssaysController < ApplicationController
                     render :new
                 end
             else
+                flash[:success] = ["\"#{@essay.title}\" was successfully created."]
                 redirect_to @essay
             end
         else

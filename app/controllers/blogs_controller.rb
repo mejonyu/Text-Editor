@@ -23,6 +23,7 @@ class BlogsController < ApplicationController
     
                 if new_contributor
                     @blog.users << new_contributor
+                    flash[:success] = ["\"#{@blog.title}\" was successfully created."]
                     flash[:messages] = ["#{new_contributor.full_name} can now edit \"#{@blog.title}\"."]
                     redirect_to @blog
                 else
@@ -30,6 +31,7 @@ class BlogsController < ApplicationController
                     render :new
                 end
             else
+                flash[:success] = ["\"#{@blog.title}\" was successfully created."]
                 redirect_to @blog
             end
         else

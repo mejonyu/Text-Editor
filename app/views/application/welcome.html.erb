@@ -6,6 +6,15 @@ body{
 }
 </style>
 
+<% if flash[:notices] %>
+    <div class="isa_success">
+        <i class="fa fa-check"></i>
+        <% flash[:notices].each do |notice| %>
+            <%= notice %>
+        <% end %>
+    </div>
+<% end %>
+
 <section class="hero hero-bg d-flex justify-content-center align-items-center">
                <div class="container">
                     <div class="row">
@@ -17,7 +26,13 @@ body{
                                        <%= link_to "Start Writing", signup_path %> 
                                     </div>
                                    <i class="d-block py-3 pl-5 text-white">© 2021 TextEditor</i>
-
+                                   <div class="welcome">
+                                   <ul class ="options">
+                                      <li><span>Blogs</span></li>
+                                      <li><span>Poems</span></li>
+                                      <li><span>Essays</span></li>
+                                      </ul>
+                                   </div>
                         </div>
 
                         <div class="col-lg-6 col-12">

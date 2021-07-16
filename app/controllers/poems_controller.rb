@@ -24,6 +24,7 @@ class PoemsController < ApplicationController
     
                 if new_contributor
                     @poem.users << new_contributor
+                    flash[:success] = ["\"#{@poem.title}\" was successfully created."]
                     flash[:messages] = ["#{new_contributor.full_name} can now edit \"#{@poem.title}\"."]
                     redirect_to @poem
                 else
@@ -31,6 +32,7 @@ class PoemsController < ApplicationController
                     render :new
                 end
             else
+                flash[:success] = ["\"#{@poem.title}\" was successfully created."]
                 redirect_to @poem
             end
         else
