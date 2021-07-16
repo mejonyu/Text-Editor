@@ -22,6 +22,14 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        user = User.find(session[:user_id])
+        session[:user_id] = nil
+        user.destroy
+        flash[:notices] = ["You have successfully deleted your account."]
+        redirect_to '/'
+    end
+
     private
 
     def user_params

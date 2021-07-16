@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2021_07_15_010744) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "essay_contributers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "essay_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "essay_contributors", force: :cascade do |t|
     t.integer "user_id"
     t.integer "essay_id"

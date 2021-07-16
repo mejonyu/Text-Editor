@@ -24,6 +24,10 @@
       <li class="nav-item">
             <%= link_to "Sign Out", signout_path, class: "nav-link active",:method => 'delete' %>
           </li>
+          
+        <li class="nav-item">
+          <%= link_to "Delete Account", destroy_path, class: "nav-link active", data: { confirm: "Are you sure?" }, method: "delete" %>
+          </li>
         <% else %>
         <a class="navbar-brand" href="/">TextEditor</a>
           <li class="nav-item">

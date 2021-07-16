@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/show', to: 'users#show'
   get '/signup', to: 'users#new'
   post '/signup-attempt', to: 'users#create'
+  delete '/destroy', to: 'users#destroy' 
 
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
@@ -15,5 +16,5 @@ Rails.application.routes.draw do
   resources :poems
   resources :blogs
 
-  resources :users, only: [:new, :create, :index, :show]
+  resources :users, only: [:new, :create, :index, :show, :destroy]
 end

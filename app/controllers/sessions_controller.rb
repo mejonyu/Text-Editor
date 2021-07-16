@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to @user
         else
-            flash[:notice] = "Login is invalid."
+            flash[:errors] = ["Login is invalid."]
             redirect_to signin_path
         end
     end

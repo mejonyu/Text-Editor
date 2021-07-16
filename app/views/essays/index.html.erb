@@ -15,10 +15,10 @@
     </div>
 <% end %>
 
-<h1>Recently Updated Essays</h1>
+<h1 style ="color:white;">Recently Updated Essays</h1>
 
 <div class="form">
-    <% @essays.sort{ |essay| essay.updated_at }.each do |essay| %>
+    <% @essays.sort{ |a,b| b.updated_at <=> a.updated_at }.each do |essay| %>
         <%= link_to essay.title, essay_path(essay) %> - <%= essay.created_or_edited %> <%= essay_edited_date_format(essay) %> by <%= essay.last_editor %><br>
     <% end %>
 </div>
